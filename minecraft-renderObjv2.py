@@ -3,7 +3,7 @@
 # Version 2 - draws complete faces rather than wireframes and uses materials
 
 #import the minecraft.py module from the minecraft directory
-import minecraft.minecraft as minecraft
+import mcpi.minecraft as minecraft
 #import minecraft block module
 import minecraft.block as block
 #import time, so delays can be used
@@ -18,8 +18,12 @@ class MinecraftDrawing:
 
     # draw point
     def drawPoint3d(self, x, y, z, blockType, blockData=None):
-        self.mc.setBlock(x,y,z,blockType,blockData)
-        #print "x = " + str(x) + ", y = " + str(y) + ", z = " + str(z)
+        # print("x = " + str(x) + ", y = " + str(y) + ", z = " + str(z) + " blockType = " + str(blockType) + " blockData = " + str(blockData))
+        if(blockData):
+            self.mc.setBlock(x,y,z,blockType,blockData)
+        else:
+            self.mc.setBlock(x,y,z,blockType)
+            
 
     # draws a face, when passed a collection of vertices which make up a polyhedron
     def drawFace(self, vertices, blockType, blockData=None):
@@ -204,7 +208,7 @@ def load_obj(filename, defaultBlock, materials) :
                 currentMaterial = materials[usemtl]
             else:
                 currentMaterial = defaultBlock
-                print "Warning: Couldn't find '" + str(usemtl) + "' in materials using default"
+                print("Warning: Couldn't find '" + str(usemtl) + "' in materials using default")
 
     return V, T, N, F, MF
 
@@ -228,7 +232,7 @@ def getVertexXYZ(vertexLine, scale, startCoord, swapYZ):
 # main program
 if __name__ == "__main__":
 
-    print datetime.datetime.now()
+    print(datetime.datetime.now())
 
     #Connect to minecraft by creating the minecraft object
     # - minecraft needs to be running and in a game
@@ -303,42 +307,42 @@ if __name__ == "__main__":
     #vertices,textures,normals,faces,materials = load_obj("cessna.obj", DEFAULTBLOCK, MATERIALS)
 
     # New York
-    #COORDSSCALE = 0.1
-    #STARTCOORD = minecraft.Vec3(-185, 0, 140)
-    #CLEARAREA1 = minecraft.Vec3(-130, 0, -130)
-    #CLEARAREA2 = minecraft.Vec3(130, 65, 130)
-    #DEFAULTBLOCK = [block.IRON_BLOCK, None]
-    #MATERIALS = {"Default_Material": [block.WOOL.id, 0],
-    #             "Color_A01": [block.WOOL.id, 14],
-    #             "0131_Silver": [block.IRON_BLOCK, None],
-    #             "0075_ForestGreen": [block.WOOL.id, 13],
-    #             "0137_Black": [block.WOOL.id, 15],
-    #             "Black": [block.WOOL.id, 15],
-    #             "Medium_Brown": [block.WOOL.id, 12],
-    #             "0056_Yellow": [block.WOOL.id, 4],
-    #             "0020_Red": [block.WOOL.id, 14],
-    #             "0102_RoyalBlue": [block.WOOL.id, 11],
-    #             "Color_E01": [block.WOOL.id, 4],
-    #             "Color_E02": [block.WOOL.id, 4],
-    #             "Color_B01": [block.WOOL.id, 1],
-    #             "Charcoal": [block.WOOL.id, 7],
-    #             "Material2": [block.WOOL.id, 0],
-    #             "Beige2": [block.SANDSTONE, None],
-    #             "DarkGoldenrod": [block.GOLD_BLOCK, None],
-    #             "Beige1": [block.SANDSTONE, None],
-    #             "jean_blue": [block.WOOL.id, 3],
-    #             "Gold1": [block.GOLD_BLOCK, None],
-    #             "WhiteSmoke": [block.WOOL.id, 8],
-    #             "0118_Thistle": [block.WOOL.id, 6],
-    #             "Color_D23": [block.WOOL.id, 7],
-    #             "Color_B23": [block.WOOL.id, 12],
-    #             "Color_009": [block.WOOL.id, 15],
-    #             "Color_D01": [block.WOOL.id, 1],
-    #             "Color_A06": [block.WOOL.id, 14],
-    #             "Color_D03": [block.WOOL.id, 4],
-    #             "0063_GreenYellow": [block.WOOL.id, 5]}
-    #SWAPYZ = False
-    #vertices,textures,normals,faces,materials = load_obj("NY_LIL.obj", DEFAULTBLOCK, MATERIALS)
+    COORDSSCALE = 0.1
+    STARTCOORD = minecraft.Vec3(-185, 0, 140)
+    CLEARAREA1 = minecraft.Vec3(-130, 0, -130)
+    CLEARAREA2 = minecraft.Vec3(130, 65, 130)
+    DEFAULTBLOCK = [block.IRON_BLOCK, None]
+    MATERIALS = {"Default_Material": [block.WOOL.id, 0],
+                "Color_A01": [block.WOOL.id, 14],
+                "0131_Silver": [block.IRON_BLOCK.id, None],
+                "0075_ForestGreen": [block.WOOL.id, 13],
+                "0137_Black": [block.WOOL.id, 15],
+                "Black": [block.WOOL.id, 15],
+                "Medium_Brown": [block.WOOL.id, 12],
+                "0056_Yellow": [block.WOOL.id, 4],
+                "0020_Red": [block.WOOL.id, 14],
+                "0102_RoyalBlue": [block.WOOL.id, 11],
+                "Color_E01": [block.WOOL.id, 4],
+                "Color_E02": [block.WOOL.id, 4],
+                "Color_B01": [block.WOOL.id, 1],
+                "Charcoal": [block.WOOL.id, 7],
+                "Material2": [block.WOOL.id, 0],
+                "Beige2": [block.SANDSTONE.id, None],
+                "DarkGoldenrod": [block.GOLD_BLOCK.id, None],
+                "Beige1": [block.SANDSTONE.id, None],
+                "jean_blue": [block.WOOL.id, 3],
+                "Gold1": [block.GOLD_BLOCK.id, None],
+                "WhiteSmoke": [block.WOOL.id, 8],
+                "0118_Thistle": [block.WOOL.id, 6],
+                "Color_D23": [block.WOOL.id, 7],
+                "Color_B23": [block.WOOL.id, 12],
+                "Color_009": [block.WOOL.id, 15],
+                "Color_D01": [block.WOOL.id, 1],
+                "Color_A06": [block.WOOL.id, 14],
+                "Color_D03": [block.WOOL.id, 4],
+                "0063_GreenYellow": [block.WOOL.id, 5]}
+    SWAPYZ = False
+    vertices,textures,normals,faces,materials = load_obj("NY_LIL.obj", DEFAULTBLOCK, MATERIALS)
 
     # Nottingham Forest City Ground
     #COORDSSCALE = 0.35
@@ -369,35 +373,35 @@ if __name__ == "__main__":
     #vertices,textures,normals,faces, materials = load_obj("City_Ground-Notts.obj", DEFAULTBLOCK, MATERIALS)
 
     # Raspbery Pi
-    COORDSSCALE = 1350
-    STARTCOORD = minecraft.Vec3(-50, 0, 0)
-    CLEARAREA1 = minecraft.Vec3(-100, 0, -100)
-    CLEARAREA2 = minecraft.Vec3(100, 20, 10)
-    DEFAULTBLOCK = [block.DIRT,None]
-    MATERIALS = {"Default_Material": [block.WOOL.id, 0],
-                 "Material1": [block.WOOL.id, 5],
-                 "Goldenrod": [block.WOOL.id, 1],
-                 "0136_Charcoal": [block.WOOL.id, 7],
-                 "Gray61": [block.WOOL.id, 7],
-                 "Charcoal": [block.WOOL.id, 7],
-                 "Color_002": [block.WOOL.id, 8],
-                 "Color_008": [block.WOOL.id, 4],
-                 "Plastic_Green": [block.WOOL.id, 5],
-                 "MB_Pastic_White": [block.WOOL.id, 0],
-                 "IO_Shiny": [block.IRON_BLOCK, None],
-                 "Material4": [block.GRASS, None],
-                 "Gainsboro3": [block.WOOL.id, 5],
-                 "CorrogateShiny1": [block.IRON_BLOCK, None],
-                 "Gold": [block.GOLD_BLOCK, None],
-                 "0129_WhiteSmoke": [block.WOOL.id, 0],
-                 "Color_005": [block.WOOL.id, 0],
-                 "USB_IO": [block.WOOL.id, 11],
-                 "_Metal": [block.IRON_BLOCK, None],
-                 "0132_LightGray": [block.WOOL.id, 8]}
-    SWAPYZ = False
-    vertices,textures,normals,faces, materials = load_obj("RaspberryPi.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 1350
+    # STARTCOORD = minecraft.Vec3(-50, 0, 0)
+    # CLEARAREA1 = minecraft.Vec3(-100, 0, -100)
+    # CLEARAREA2 = minecraft.Vec3(100, 20, 10)
+    # DEFAULTBLOCK = [block.DIRT,None]
+    # MATERIALS = {"Default_Material": [block.WOOL.id, 0],
+    #              "Material1": [block.WOOL.id, 5],
+    #              "Goldenrod": [block.WOOL.id, 1],
+    #              "0136_Charcoal": [block.WOOL.id, 7],
+    #              "Gray61": [block.WOOL.id, 7],
+    #              "Charcoal": [block.WOOL.id, 7],
+    #              "Color_002": [block.WOOL.id, 8],
+    #              "Color_008": [block.WOOL.id, 4],
+    #              "Plastic_Green": [block.WOOL.id, 5],
+    #              "MB_Pastic_White": [block.WOOL.id, 0],
+    #              "IO_Shiny": [block.IRON_BLOCK.id, None],
+    #              "Material4": [block.GRASS.id, None],
+    #              "Gainsboro3": [block.WOOL.id, 5],
+    #              "CorrogateShiny1": [block.IRON_BLOCK.id, None],
+    #              "Gold": [block.GOLD_BLOCK.id, None],
+    #              "0129_WhiteSmoke": [block.WOOL.id, 0],
+    #              "Color_005": [block.WOOL.id, 0],
+    #              "USB_IO": [block.WOOL.id, 11],
+    #              "_Metal": [block.IRON_BLOCK.id, None],
+    #              "0132_LightGray": [block.WOOL.id, 8]}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces, materials = load_obj("RaspberryPi.obj", DEFAULTBLOCK, MATERIALS)
 
-    print "obj file loaded"
+    print("obj file loaded")
 
     #Post a message to the minecraft chat window 
     mc.postToChat("Hi, Minecraft 3d model maker, www.stuffaboutcode.com")
@@ -419,9 +423,10 @@ if __name__ == "__main__":
             faceVertices.append(minecraft.Vec3(vertexX,vertexY,vertexZ))
                    
         # draw the face
+        # print("face count = " + str(faceCount) + " blockType = " + str(materials[faceCount][0]) + " blockData = " + str(materials[faceCount][1]) )
         mcDrawing.drawFace(faceVertices, materials[faceCount][0], materials[faceCount][1])
         faceCount = faceCount + 1
 
     mc.postToChat("Model complete, www.stuffaboutcode.com")
 
-    print datetime.datetime.now()
+    print(datetime.datetime.now())
