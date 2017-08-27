@@ -251,98 +251,98 @@ if __name__ == "__main__":
     # DEFAULTBLOCK = the default type of block to build the model in, used if a material cant be found
 
     # Cube
-    #COORDSSCALE = 10
-    #STARTCOORD = minecraft.Vec3(0,10,0)
-    #CLEARAREA1 = minecraft.Vec3(-10, 0, -10)
-    #CLEARAREA2 = minecraft.Vec3(10, 20, 10)
-    #DEFAULTBLOCK = [block.STONE, None]
-    #MATERIALS = {}
-    #SWAPYZ = False
-    #vertices,textures,normals,faces,materials = load_obj("cube.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 10
+    # STARTCOORD = minecraft.Vec3(0,10,0)
+    # CLEARAREA1 = minecraft.Vec3(-10, 0, -10)
+    # CLEARAREA2 = minecraft.Vec3(10, 20, 10)
+    # DEFAULTBLOCK = [block.STONE, None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces,materials = load_obj("cube.obj", DEFAULTBLOCK, MATERIALS)
 
     # Shuttle
-    #COORDSSCALE = 6
-    #STARTCOORD = minecraft.Vec3(-60,0,20)
-    #CLEARAREA1 = minecraft.Vec3(-30, 5, -30)
-    #CLEARAREA2 = minecraft.Vec3(-90, 50, 30)
-    #DEFAULTBLOCK = [block.WOOL.id,0]
-    #MATERIALS = {"glass": [block.GLASS.id, None],
+    # COORDSSCALE = 6
+    # STARTCOORD = minecraft.Vec3(-60,0,20)
+    # CLEARAREA1 = minecraft.Vec3(-30, 5, -30)
+    # CLEARAREA2 = minecraft.Vec3(-90, 50, 30)
+    # DEFAULTBLOCK = [block.WOOL.id,0]
+    # MATERIALS = {"glass": [block.GLASS.id, None],
     #             "bone": [block.WOOL.id, 0],
     #             "fldkdkgrey": [block.WOOL.id, 7],
     #             "redbrick": [block.WOOL.id, 14],
     #             "black": [block.WOOL.id, 15],
     #             "brass": [block.WOOL.id, 1],
     #             "dkdkgrey": [block.WOOL.id, 7]}
-    #SWAPYZ = True
-    #vertices,textures,normals,faces,materials = load_obj("shuttle.obj", DEFAULTBLOCK, MATERIALS)
+    # SWAPYZ = True
+    # vertices,textures,normals,faces,materials = load_obj("shuttle.obj", DEFAULTBLOCK, MATERIALS)
 
     # Shyscraper
-    #COORDSSCALE = 1.4
-    #STARTCOORD = minecraft.Vec3(0,10,15)
-    #CLEARAREA1 = minecraft.Vec3(-30, -3, -15)
-    #CLEARAREA2 = minecraft.Vec3(30, 65, 35)
-    #DEFAULTBLOCK = [block.IRON_BLOCK, None]
-    #MATERIALS = {}
-    #SWAPYZ = False
-    #vertices,textures,normals,faces,materials = load_obj("skyscraper.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 1.4
+    # STARTCOORD = minecraft.Vec3(0,10,15)
+    # CLEARAREA1 = minecraft.Vec3(-30, -3, -15)
+    # CLEARAREA2 = minecraft.Vec3(30, 65, 35)
+    # DEFAULTBLOCK = [block.IRON_BLOCK, None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces,materials = load_obj("skyscraper.obj", DEFAULTBLOCK, MATERIALS)
 
     # Head
-    #COORDSSCALE = 3
-    #STARTCOORD = minecraft.Vec3(0,-431,-60)
-    #CLEARAREA1 = minecraft.Vec3(-30, -30, -30)
-    #CLEARAREA2 = minecraft.Vec3(30, 65, -110)
-    #DEFAULTBLOCK = [block.GOLD_BLOCK, None]
-    #MATERIALS = {}
-    #SWAPYZ = False
-    #vertices,textures,normals,faces,materials = load_obj("head.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 3
+    # STARTCOORD = minecraft.Vec3(0,-431,-60)
+    # CLEARAREA1 = minecraft.Vec3(-30, -30, -30)
+    # CLEARAREA2 = minecraft.Vec3(30, 65, -110)
+    # DEFAULTBLOCK = [block.GOLD_BLOCK, None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces,materials = load_obj("head.obj", DEFAULTBLOCK, MATERIALS)
 
     # Cessna
-    #COORDSSCALE = 2
-    #STARTCOORD = minecraft.Vec3(-75, 25, -60)
-    #CLEARAREA1 = minecraft.Vec3(-30, 15, -30)
-    #CLEARAREA2 = minecraft.Vec3(-100, 65, -90)
-    #DEFAULTBLOCK = [block.WOOD_PLANKS, None]
-    #MATERIALS = {}
-    #SWAPYZ = False
-    #vertices,textures,normals,faces,materials = load_obj("cessna.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 2
+    # STARTCOORD = minecraft.Vec3(-75, 25, -60)
+    # CLEARAREA1 = minecraft.Vec3(-30, 15, -30)
+    # CLEARAREA2 = minecraft.Vec3(-100, 65, -90)
+    # DEFAULTBLOCK = [block.WOOD_PLANKS, None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces,materials = load_obj("cessna.obj", DEFAULTBLOCK, MATERIALS)
 
     # New York
-    COORDSSCALE = 0.1
-    STARTCOORD = minecraft.Vec3(-185, 0, 140)
-    CLEARAREA1 = minecraft.Vec3(-130, 0, -130)
-    CLEARAREA2 = minecraft.Vec3(130, 65, 130)
-    DEFAULTBLOCK = [block.IRON_BLOCK, None]
-    MATERIALS = {"Default_Material": [block.WOOL.id, 0],
-                "Color_A01": [block.WOOL.id, 14],
-                "0131_Silver": [block.IRON_BLOCK.id, None],
-                "0075_ForestGreen": [block.WOOL.id, 13],
-                "0137_Black": [block.WOOL.id, 15],
-                "Black": [block.WOOL.id, 15],
-                "Medium_Brown": [block.WOOL.id, 12],
-                "0056_Yellow": [block.WOOL.id, 4],
-                "0020_Red": [block.WOOL.id, 14],
-                "0102_RoyalBlue": [block.WOOL.id, 11],
-                "Color_E01": [block.WOOL.id, 4],
-                "Color_E02": [block.WOOL.id, 4],
-                "Color_B01": [block.WOOL.id, 1],
-                "Charcoal": [block.WOOL.id, 7],
-                "Material2": [block.WOOL.id, 0],
-                "Beige2": [block.SANDSTONE.id, None],
-                "DarkGoldenrod": [block.GOLD_BLOCK.id, None],
-                "Beige1": [block.SANDSTONE.id, None],
-                "jean_blue": [block.WOOL.id, 3],
-                "Gold1": [block.GOLD_BLOCK.id, None],
-                "WhiteSmoke": [block.WOOL.id, 8],
-                "0118_Thistle": [block.WOOL.id, 6],
-                "Color_D23": [block.WOOL.id, 7],
-                "Color_B23": [block.WOOL.id, 12],
-                "Color_009": [block.WOOL.id, 15],
-                "Color_D01": [block.WOOL.id, 1],
-                "Color_A06": [block.WOOL.id, 14],
-                "Color_D03": [block.WOOL.id, 4],
-                "0063_GreenYellow": [block.WOOL.id, 5]}
-    SWAPYZ = False
-    vertices,textures,normals,faces,materials = load_obj("NY_LIL.obj", DEFAULTBLOCK, MATERIALS)
+    # COORDSSCALE = 0.1
+    # STARTCOORD = minecraft.Vec3(-185, 0, 140)
+    # CLEARAREA1 = minecraft.Vec3(-130, 0, -130)
+    # CLEARAREA2 = minecraft.Vec3(130, 65, 130)
+    # DEFAULTBLOCK = [block.IRON_BLOCK, None]
+    # MATERIALS = {"Default_Material": [block.WOOL.id, 0],
+    #             "Color_A01": [block.WOOL.id, 14],
+    #             "0131_Silver": [block.IRON_BLOCK.id, None],
+    #             "0075_ForestGreen": [block.WOOL.id, 13],
+    #             "0137_Black": [block.WOOL.id, 15],
+    #             "Black": [block.WOOL.id, 15],
+    #             "Medium_Brown": [block.WOOL.id, 12],
+    #             "0056_Yellow": [block.WOOL.id, 4],
+    #             "0020_Red": [block.WOOL.id, 14],
+    #             "0102_RoyalBlue": [block.WOOL.id, 11],
+    #             "Color_E01": [block.WOOL.id, 4],
+    #             "Color_E02": [block.WOOL.id, 4],
+    #             "Color_B01": [block.WOOL.id, 1],
+    #             "Charcoal": [block.WOOL.id, 7],
+    #             "Material2": [block.WOOL.id, 0],
+    #             "Beige2": [block.SANDSTONE.id, None],
+    #             "DarkGoldenrod": [block.GOLD_BLOCK.id, None],
+    #             "Beige1": [block.SANDSTONE.id, None],
+    #             "jean_blue": [block.WOOL.id, 3],
+    #             "Gold1": [block.GOLD_BLOCK.id, None],
+    #             "WhiteSmoke": [block.WOOL.id, 8],
+    #             "0118_Thistle": [block.WOOL.id, 6],
+    #             "Color_D23": [block.WOOL.id, 7],
+    #             "Color_B23": [block.WOOL.id, 12],
+    #             "Color_009": [block.WOOL.id, 15],
+    #             "Color_D01": [block.WOOL.id, 1],
+    #             "Color_A06": [block.WOOL.id, 14],
+    #             "Color_D03": [block.WOOL.id, 4],
+    #             "0063_GreenYellow": [block.WOOL.id, 5]}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces,materials = load_obj("NY_LIL.obj", DEFAULTBLOCK, MATERIALS)
 
     # Nottingham Forest City Ground
     #COORDSSCALE = 0.35
@@ -400,15 +400,31 @@ if __name__ == "__main__":
     #              "0132_LightGray": [block.WOOL.id, 8]}
     # SWAPYZ = False
     # vertices,textures,normals,faces, materials = load_obj("RaspberryPi.obj", DEFAULTBLOCK, MATERIALS)
+    
+    # Tower
+    COORDSSCALE = 40
+    mc = minecraft.Minecraft.create()
+    pos = mc.player.getTilePos()
+    STARTCOORD = minecraft.Vec3(pos.x, pos.y, pos.z)
+    CLEARAREA1 = minecraft.Vec3(pos.x-100, pos.y, pos.z-100)
+    CLEARAREA2 = minecraft.Vec3(pos.x+100, pos.y+50, pos.z+100)
+    DEFAULTBLOCK = [block.DIRT,None]
+    MATERIALS = {}
+    SWAPYZ = False
+    vertices,textures,normals,faces, materials = load_obj("tower.obj", DEFAULTBLOCK, MATERIALS)
 
     print("obj file loaded")
 
     #Post a message to the minecraft chat window 
     mc.postToChat("Hi, Minecraft 3d model maker, www.stuffaboutcode.com")
     
+    print("Start to clear the area...")
     # clear a suitably large area
     mc.setBlocks(CLEARAREA1.x, CLEARAREA1.y, CLEARAREA1.z, CLEARAREA2.x, CLEARAREA2.y, CLEARAREA2.z, block.AIR)
-    time.sleep(10)
+    waitSeconds = 30
+    print("Finish area clearant. sleep %d seconds...." % waitSeconds)
+    time.sleep(waitSeconds)
+    print("Finish sleeping")
 
     faceCount = 0
     # loop through faces
