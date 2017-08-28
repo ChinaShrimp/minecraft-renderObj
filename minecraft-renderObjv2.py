@@ -229,6 +229,57 @@ def getVertexXYZ(vertexLine, scale, startCoord, swapYZ):
         z = swap
     return x, y, z
 
+def drawCube(mcDrawing):
+    # Cube
+    COORDSSCALE = 10
+    STARTCOORD = minecraft.Vec3(0,10,0)
+    CLEARAREA1 = minecraft.Vec3(-10, 0, -10)
+    CLEARAREA2 = minecraft.Vec3(10, 20, 10)
+    DEFAULTBLOCK = [block.STONE, None]
+    MATERIALS = {}
+    SWAPYZ = False
+    vertices,textures,normals,faces,materials = load_obj("cube.obj", DEFAULTBLOCK, MATERIALS)
+    print("obj file loaded")
+    doDrawing(faces, vertices, materials, mcDrawing, COORDSSCALE, STARTCOORD, CLEARAREA1, CLEARAREA2, SWAPYZ)
+
+def drawBeijingTemple(mcDrawing):
+    mc = minecraft.Minecraft.create()
+    pos = mc.player.getTilePos()
+    STARTCOORD = minecraft.Vec3(pos.x, pos.y, pos.z)
+    CLEARAREA1 = minecraft.Vec3(pos.x-100, pos.y, pos.z-100)
+    CLEARAREA2 = minecraft.Vec3(pos.x+100, pos.y+100, pos.z+100)
+    DEFAULTBLOCK = [block.DIRT,None]
+    COORDSSCALE = 10
+    MATERIALS = {}
+    SWAPYZ = False
+    vertices,textures,normals,faces, materials = load_obj("BeijingTemple.obj", DEFAULTBLOCK, MATERIALS)
+    print("obj file loaded")
+    doDrawing(faces, vertices, materials, mcDrawing, COORDSSCALE, STARTCOORD, CLEARAREA1, CLEARAREA2, SWAPYZ)
+    
+def doDrawing(faces, vertices, materials, mcDrawing, scale, startCoord, clearArea1, clearArea2, swapYZ):
+    mc.setBlocks(clearArea1.x, clearArea1.y, clearArea1.z, clearArea2.x, clearArea2.y, clearArea2.z, block.AIR)
+    waitSeconds = 30
+    print("Finish area clearant. sleep %d seconds...." % waitSeconds)
+    time.sleep(waitSeconds)
+    print("Finish sleeping")
+
+    faceCount = 0
+    # loop through faces
+    for face in faces:
+        faceVertices = []
+        
+        # loop through vertex's in face and call drawFace function
+        for vertex in face:
+            #strip co-ords from vertex line
+            vertexX, vertexY, vertexZ = getVertexXYZ(vertices[vertex[0]], scale, startCoord, swapYZ)
+
+            faceVertices.append(minecraft.Vec3(vertexX,vertexY,vertexZ))
+                   
+        # draw the face
+        # print("face count = " + str(faceCount) + " blockType = " + str(materials[faceCount][0]) + " blockData = " + str(materials[faceCount][1]) )
+        mcDrawing.drawFace(faceVertices, materials[faceCount][0], materials[faceCount][1])
+        faceCount = faceCount + 1
+
 # main program
 if __name__ == "__main__":
 
@@ -250,15 +301,7 @@ if __name__ == "__main__":
     # MATERIALS = a dictionary object which maps materials in the obj file to blocks in minecraft
     # DEFAULTBLOCK = the default type of block to build the model in, used if a material cant be found
 
-    # Cube
-    # COORDSSCALE = 10
-    # STARTCOORD = minecraft.Vec3(0,10,0)
-    # CLEARAREA1 = minecraft.Vec3(-10, 0, -10)
-    # CLEARAREA2 = minecraft.Vec3(10, 20, 10)
-    # DEFAULTBLOCK = [block.STONE, None]
-    # MATERIALS = {}
-    # SWAPYZ = False
-    # vertices,textures,normals,faces,materials = load_obj("cube.obj", DEFAULTBLOCK, MATERIALS)
+    
 
     # Shuttle
     # COORDSSCALE = 6
@@ -402,46 +445,58 @@ if __name__ == "__main__":
     # vertices,textures,normals,faces, materials = load_obj("RaspberryPi.obj", DEFAULTBLOCK, MATERIALS)
     
     # Tower
-    COORDSSCALE = 40
-    mc = minecraft.Minecraft.create()
-    pos = mc.player.getTilePos()
-    STARTCOORD = minecraft.Vec3(pos.x, pos.y, pos.z)
-    CLEARAREA1 = minecraft.Vec3(pos.x-100, pos.y, pos.z-100)
-    CLEARAREA2 = minecraft.Vec3(pos.x+100, pos.y+50, pos.z+100)
-    DEFAULTBLOCK = [block.DIRT,None]
-    MATERIALS = {}
-    SWAPYZ = False
-    vertices,textures,normals,faces, materials = load_obj("tower.obj", DEFAULTBLOCK, MATERIALS)
-
-    print("obj file loaded")
+    # COORDSSCALE = 40
+    # mc = minecraft.Minecraft.create()
+    # pos = mc.player.getTilePos()
+    # STARTCOORD = minecraft.Vec3(pos.x, pos.y, pos.z)
+    # CLEARAREA1 = minecraft.Vec3(pos.x-100, pos.y, pos.z-100)
+    # CLEARAREA2 = minecraft.Vec3(pos.x+100, pos.y+50, pos.z+100)
+    # DEFAULTBLOCK = [block.DIRT,None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces, materials = load_obj("tower.obj", DEFAULTBLOCK, MATERIALS)
+    
+    # Beijing template
+    # COORDSSCALE = 10
+    # mc = minecraft.Minecraft.create()
+    # pos = mc.player.getTilePos()
+    # STARTCOORD = minecraft.Vec3(pos.x, pos.y, pos.z)
+    # CLEARAREA1 = minecraft.Vec3(pos.x-100, pos.y, pos.z-100)
+    # CLEARAREA2 = minecraft.Vec3(pos.x+100, pos.y+100, pos.z+100)
+    # DEFAULTBLOCK = [block.DIRT,None]
+    # MATERIALS = {}
+    # SWAPYZ = False
+    # vertices,textures,normals,faces, materials = load_obj("BeijingTemple.obj", DEFAULTBLOCK, MATERIALS)
 
     #Post a message to the minecraft chat window 
     mc.postToChat("Hi, Minecraft 3d model maker, www.stuffaboutcode.com")
     
-    print("Start to clear the area...")
-    # clear a suitably large area
-    mc.setBlocks(CLEARAREA1.x, CLEARAREA1.y, CLEARAREA1.z, CLEARAREA2.x, CLEARAREA2.y, CLEARAREA2.z, block.AIR)
-    waitSeconds = 30
-    print("Finish area clearant. sleep %d seconds...." % waitSeconds)
-    time.sleep(waitSeconds)
-    print("Finish sleeping")
+    drawBeijingTemple(mcDrawing)
+    
+    # print("Start to clear the area...")
+    # # clear a suitably large area
+    # mc.setBlocks(CLEARAREA1.x, CLEARAREA1.y, CLEARAREA1.z, CLEARAREA2.x, CLEARAREA2.y, CLEARAREA2.z, block.AIR)
+    # waitSeconds = 30
+    # print("Finish area clearant. sleep %d seconds...." % waitSeconds)
+    # time.sleep(waitSeconds)
+    # print("Finish sleeping")
 
-    faceCount = 0
-    # loop through faces
-    for face in faces:
-        faceVertices = []
+    # faceCount = 0
+    # # loop through faces
+    # for face in faces:
+    #     faceVertices = []
         
-        # loop through vertex's in face and call drawFace function
-        for vertex in face:
-            #strip co-ords from vertex line
-            vertexX, vertexY, vertexZ = getVertexXYZ(vertices[vertex[0]], COORDSSCALE, STARTCOORD, SWAPYZ)
+    #     # loop through vertex's in face and call drawFace function
+    #     for vertex in face:
+    #         #strip co-ords from vertex line
+    #         vertexX, vertexY, vertexZ = getVertexXYZ(vertices[vertex[0]], COORDSSCALE, STARTCOORD, SWAPYZ)
 
-            faceVertices.append(minecraft.Vec3(vertexX,vertexY,vertexZ))
+    #         faceVertices.append(minecraft.Vec3(vertexX,vertexY,vertexZ))
                    
-        # draw the face
-        # print("face count = " + str(faceCount) + " blockType = " + str(materials[faceCount][0]) + " blockData = " + str(materials[faceCount][1]) )
-        mcDrawing.drawFace(faceVertices, materials[faceCount][0], materials[faceCount][1])
-        faceCount = faceCount + 1
+    #     # draw the face
+    #     # print("face count = " + str(faceCount) + " blockType = " + str(materials[faceCount][0]) + " blockData = " + str(materials[faceCount][1]) )
+    #     mcDrawing.drawFace(faceVertices, materials[faceCount][0], materials[faceCount][1])
+    #     faceCount = faceCount + 1
 
     mc.postToChat("Model complete, www.stuffaboutcode.com")
 
